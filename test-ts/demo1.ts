@@ -114,6 +114,37 @@ function infiniteLoop(): never {
 }
 
 // Object
+/**
+ * object表示非原始类型，也就是除number，string，boolean，symbol，null或undefined之外的类型。
+ * 使用object类型，就可以更好的表示像Object.create这样的API。
+ */
+declare function create(o: object | null): void;
+
+// create({ prop: 0 })
+// create(null)
+// error
+// create(42)
+// create("string")
+// create(false)
+// create(undefined)
+
+/**
+ * 类型断言
+ * 两种形式：
+ *  1.尖括号
+ *  2.as语法
+ * 两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；
+ * 然而，当你在TypeScript里使用JSX时，只有 as语法断言是被允许的。
+ */
+console.log("类型断言");
+// 1.
+let someValue: any = "this is a string"
+let strLength: number = (<string>someValue).length
+console.log(strLength);
+let strLength2: number = (someValue as string).length
+console.log(strLength2);
+
+// 尽可能使用let 代替var
 
 
 
