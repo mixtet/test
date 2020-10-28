@@ -1,2 +1,2 @@
 # test
-小米商城pc端，支付使用微信支付 和 支付宝支付
+TypeScript
