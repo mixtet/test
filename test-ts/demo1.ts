@@ -148,6 +148,95 @@ console.log(strLength2);
 
 
 
+//  变量声明
+
+// 捕获变量
+//  var
+// for (var i = 0; i < 10; i++) {
+//   // setTimeout(
+//   //   function () { 
+//   //     console.log(i)
+//   //   }, 100 * i)//10....
+//   (function (i) {
+//     setTimeout(
+//       function () {
+//         console.log(i)
+//       }, 100 * i);
+//   })(i)
+//   // ()()  第一个函数是定义了一个匿名函数，后一个括号是指调用这个函数并传入一个参数
+//   // 定义函数  调用函数
+//  }
+
+// let: 块作用域
+// for (let i = 0; i < 10; i++) { 
+//   setTimeout(
+//     function () { 
+//       console.log(i);
+//     },100 * i)
+// }
+
+//  const：常量，不可变，块作用域,TypeScript允许你将对象的成员设置成只读的。
+const numLivesForCat = 9
+const kitty = {
+  name: 'Aurora',
+  numLives:numLivesForCat
+}
+
+// kitty = {//error
+//   name: 'skd',
+// }
+//  okay
+kitty.name = 'xiaoming'
+kitty.numLives = 3
+console.log(kitty);
+
+function createLi(s:string,value: any) { 
+  var a = document.createElement('li')
+  a.innerHTML = s + value
+  document.getElementById('test')?.appendChild(a)
+}
+
+//  解构
+// 语法
+createLi("","解构 语法");
+var a, b, rest;
+[a, b] = [10, 20];
+createLi("a = ",a);
+createLi("b = ",b);
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+createLi('a = ',a);
+createLi('b = ',b);
+createLi('rest = ', rest);
+
+({ a, b } = { a: 10, b: 20 });
+createLi("a = ", a);
+createLi('b = ', b);
+
+createLi('对象解构', '');
+let o = {
+  a: 'foo',
+  b: 12,
+  c: 'bar',
+  d: 'asd',
+  e: 90
+};
+// let { a, b } = o;
+let { a: new1, b: new2 } = o
+createLi('new1 = ', new1)
+createLi('new2 = ', new2)
+// 剩余
+let { a:e, ...passthrough } = o
+createLi('e = ', e)
+let total = passthrough.b + passthrough.c.length;
+createLi('total = ', total)
+
+
+
+
+
+
+
 
 
 
